@@ -11,7 +11,7 @@
 
 pwd; hostname; date
 
-module load trimmomatic/0.39 hisat2/2.2.0
+module load adapterremoval/2.2.2 hisat2/2.2.0
 
 echo 'Trimming, filtering, and aligning selected RNAseq data in PRJNA546251 to TAIR10 reference genome'
 
@@ -21,15 +21,16 @@ reads=/ufrc/jkim6/share/braskey/data/PRJNA546251/
 aln=/ufrc/jkim6/share/braskey/data/PRJNA546251/HISAT2/
 
 # Copy reference fasta into index folder, and generate index
-cp ${ref}TAIR10.fa ${index}
-hisat2-build ${index}TAIR10.fa ${index}TAIR10
+#cp ${ref}TAIR10.fa ${index}
+#hisat2-build ${index}TAIR10.fa ${index}TAIR10
 
-for id in SRR9200655 SRR9200659 SRR9200662 SRR9200665 SRR9200668 SRR9200671 SRR9200675 SRR9200678 SRR9200681 SRR9200685 SRR9200687 SRR9200691
+# SRR9200655 SRR9200659 SRR9200662 SRR9200665 SRR9200668 SRR9200671 SRR9200675 SRR9200678 SRR9200681 SRR9200685 SRR9200687 SRR9200691
+for id in SRR9200658 SRR9200661 SRR9200664 SRR9200667 SRR9200670 SRR9200674 SRR9200677 SRR9200680 SRR9200683 SRR9200686 SRR9200690 SRR9200693
 do
-  # Apply trimmomatic to remove adapter sequences and filter low quality reads
-  trimmomatic SE -threads 1 \
-    ${reads}${id}.fastq ${reads}${id}_trimmed.fastq \
-    ILLUMINACLIP:TruSeq3-SE:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:80
+  # Apply AdapterRemoval to remove adapter sequences and filter low quality reads
+  AdapterRemoval --file1 ${reads}${id}.fastq \
+    --basename ${reads}${id} --output1 ${reads}${id}_trimmed.fastq \
+    --trimns --trimqualities --minlength 80
 
   # Apply HISAT2 to align trimmed and filtered reads to TAIR10 reference genome
   hisat2 -U ${reads}${id}_trimmed.fastq \

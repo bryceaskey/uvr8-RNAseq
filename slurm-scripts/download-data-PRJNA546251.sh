@@ -18,18 +18,18 @@ echo 'Downloading arabidopsis RNA seq data'
 dest=/ufrc/jkim6/share/braskey/data/PRJNA546251/
 
 # PRJNA546251
-#fasterq-dump SRR9200655 -O ${dest} -e 1 -t ${dest}tmp/ # Col-0, WL
-#fasterq-dump SRR9200659 -O ${dest} -e 1 -t ${dest}tmp/ # Col-0, WL
-#fasterq-dump SRR9200662 -O ${dest} -e 1 -t ${dest}tmp/ # Col-0, WL
+fastq-dump SRR9200658 -O ${dest} # Col-0, WL
+fastq-dump SRR9200661 -O ${dest} # Col-0, WL
+fastq-dump SRR9200664 -O ${dest} # Col-0, WL
 
-fasterq-dump SRR9200665 -O ${dest} -e 1 -t ${dest}tmp/ # Col-0, WL_UVB_6h
-#fasterq-dump SRR9200668 -O ${dest} -e 1 -t ${dest}tmp/ # Col-0, WL_UVB_6h
-#fasterq-dump SRR9200671 -O ${dest} -e 1 -t ${dest}tmp/ # Col-0, WL_UVB_6h
+fastq-dump SRR9200667 -O ${dest} # Col-0, WL_UVB_6h
+fastq-dump SRR9200670 -O ${dest} # Col-0, WL_UVB_6h
+fastq-dump SRR9200674 -O ${dest} # Col-0, WL_UVB_6h
 
-fasterq-dump SRR9200675 -O ${dest} -e 1 -t ${dest}tmp/ # uvr8, WL
-#fasterq-dump SRR9200678 -O ${dest} -e 1 -t ${dest}tmp/ # uvr8, WL
-#fasterq-dump SRR9200681 -O ${dest} -e 1 -t ${dest}tmp/ # uvr8, WL
+fastq-dump SRR9200677 -O ${dest} # uvr8, WL
+fastq-dump SRR9200680 -O ${dest} # uvr8, WL
+fastq-dump SRR9200683 -O ${dest} # uvr8, WL
 
-#fasterq-dump SRR9200685 -O ${dest} -e 1 -t ${dest}tmp/ # uvr8, WL_UVB_6h
-#fasterq-dump SRR9200687 -O ${dest} -e 1 -t ${dest}tmp/ # uvr8, WL_UVB_6h
-#fasterq-dump SRR9200691 -O ${dest} -e 1 -t ${dest}tmp/ # uvr8, WL_UVB_6h
+fastq-dump SRR9200686 -O ${dest} # uvr8, WL_UVB_6h
+fastq-dump SRR9200690 -O ${dest} # uvr8, WL_UVB_6h
+fastq-dump SRR9200693 -O ${dest} # uvr8, WL_UVB_6h
